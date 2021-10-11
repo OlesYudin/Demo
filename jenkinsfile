@@ -36,7 +36,7 @@ pipeline {
         }
         stage('4-Celebrate') {
             steps {
-                sh "pwd"
+                sh "cp /var/lib/jenkins/workspace/Pipeline-job1 /var/www/html/"
             }
         }	
     }
