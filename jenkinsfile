@@ -36,7 +36,7 @@ pipeline {
         }
         stage('4-Celebrate') {
             steps {
-                echo "CONGRATULYACIYA!"
+                sh "pwd"
             }
         }	
     }
