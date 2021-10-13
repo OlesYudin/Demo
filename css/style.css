@@ -34,7 +34,7 @@ header a {
 }
 .time {
   margin: 20px 0 20px 0;
-  color: #fff;
+  color: #19e7ee;
   line-height: 28px;
   font-size: 14px;
   font-family: "Russo One", sans-serif;
@@ -58,7 +58,7 @@ header a {
   padding: 17px 0 17px 0;
   border-radius: 2px;
   color: #fff;
-  background: #1669b3;
+  background: #f1f7fc;
   font-family: "Russo One", sans-serif;
   font-size: 13px;
   text-decoration: none;
