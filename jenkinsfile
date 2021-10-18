@@ -16,9 +16,7 @@ pipeline {
             }
         }
         stage('2-Git configuration') {
-            steps {
-                echo "Git config"
-            }
+                git changelog: false, credentialsId: 'jenkins-github', poll: false, url: 'https://github.com/OlesYudin/Demo.git'
         }
         stage('3-SSH') {
             steps {
