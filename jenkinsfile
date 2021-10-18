@@ -1,25 +1,26 @@
 pipeline {
     agent any
     environment {
-      PROJECT_NAME = "Demo Pipe"
-      OWNER_NAME   = "Student"
+      PROJECT_NAME = "Demonstration pipeline"
+      OWNER_NAME   = "Student-SS-2021"
     }
 
     stages {
         stage('1-Build') {
             steps {
-                echo "Start of Stage Build..."
+                echo "Start first Building..."
+                echo "It`s first: ${PROJECT_NAME}!"
+                echo "Owner is: ${OWNER_NAME}"
                 echo "Building......."
-                echo "End of Stage Build..."
+                echo "End first Building..."
             }
         }
-        stage('2-Test') {
+        stage('2-Git configuration') {
+            git branch: "master", git credentialsId: 'jenkins-github', url: 'git@github.com:OlesYudin/Demo.git'
+        }
+        stage('3-SSH') {
             steps {
-                echo "Start of Stage Test..."
-                echo "Testing......."
-                echo "It`s first ${PROJECT_NAME}!"
-                echo "Owner is ${OWNER_NAME}"
-                echo "End of Stage Build..."
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'Webserver', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
         stage('3-Deploy') {
@@ -32,11 +33,6 @@ pipeline {
                    echo "Line2"
                 '''
                 echo "End of Stage Build..."
-            }
-        }
-        stage('4-Celebrate') {
-            steps {
-                sh "sudo cp -a /var/lib/jenkins/workspace/Pipeline-job1/. /var/www/html"
             }
         }	
     }
