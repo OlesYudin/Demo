@@ -9,7 +9,7 @@ pipeline {
         stage('1-Build') {
             steps {
                 echo "Start first Building..."
-                echo "It`s first: ${PROJECT_NAME}!"
+                echo "It`s first project named: ${PROJECT_NAME}!"
                 echo "Owner is: ${OWNER_NAME}"
                 echo "Building......."
                 echo "End first Building..."

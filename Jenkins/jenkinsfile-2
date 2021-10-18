@@ -1,0 +1,8 @@
+node {
+    stage('Git') {
+        sshagent (credentials: ['jenkins']) {
+            echo "Start of Stage Deploy..."
+            sh 'scp /var/lib/jenkins/workspace/Demo-pipe/2.txt ubuntu@18.188.92.178:/var/www/html'
+        }
+    }
+}
