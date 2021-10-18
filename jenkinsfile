@@ -20,7 +20,7 @@ pipeline {
         }
         stage('3-SSH') {
             steps {
-                echo "Start of Stage Deploy..."
+                echo "Start of Stage Deployi..."
             }
         }
         stage('3-Deploy') {
