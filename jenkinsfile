@@ -16,11 +16,11 @@ pipeline {
             }
         }
         stage('2-Git configuration') {
-            git branch: "master", git credentialsId: 'jenkins-github', url: 'git@github.com:OlesYudin/Demo.git'
+            echo "git cfg"
         }
         stage('3-SSH') {
             steps {
-                echo "Start of Stage Deployi..."
+                echo "Public over ssh"
             }
         }
         stage('3-Deploy') {
